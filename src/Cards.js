@@ -51,9 +51,9 @@ function inputCards() {
         document.querySelector(".table").innerHTML += `
             <div class="card turn" onClick=selectCards(this) >
                 <div class="front face">
-                    <img src="../Images/front.png" alt="">
+                    <img src="Images/front.png" alt="">
                 </div>
-                <div class="back face"><img src="../Images/${card}.gif" alt=""></div>
+                <div class="back face"><img src="Images/${card}.gif" alt=""></div>
             </div>
     `;
     });
