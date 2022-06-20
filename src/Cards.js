@@ -37,12 +37,19 @@ function sortCards() {
     cheap.sort(random);
     cheap.sort(random);
     inputCards();
+    setTimeout(()=>{
+       let turncards =  document.querySelectorAll(".card")
+       console.log(turncards)
+       for(const turn of turncards){
+        turn.classList.remove("turn")
+       }
+    },3000)
 }
 
 function inputCards() {
     cheap.map((card) => {
         document.querySelector(".table").innerHTML += `
-            <div class="card" onClick=selectCards(this) >
+            <div class="card turn" onClick=selectCards(this) >
                 <div class="front face">
                     <img src="../Images/front.png" alt="">
                 </div>
@@ -85,7 +92,7 @@ function selectCards(element) {
        setTimeout(()=> alert(`Você ganhou em ${plays} jogadas e em ${time} segundos!`)
        ,1000);
     }
-}
+}0
 
 function watch(){
     setInterval(()=>{time+=1
