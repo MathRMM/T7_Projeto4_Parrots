@@ -7,6 +7,7 @@ let cards = [
     "tripletsparrot",
     "unicornparrot",
 ];
+
 let cheap = [];
 let dealCards;
 let firstLetter;
