@@ -14,7 +14,7 @@ let firstLetter;
 let secondLetter;
 let counter = 0;
 let plays = 0;
-let time=0
+let time = 0
 
 function askAmount() {
     dealCards = prompt("Escolha um numero par de cartas entre 4 a 14");
@@ -37,13 +37,13 @@ function sortCards() {
     cheap.sort(random);
     cheap.sort(random);
     inputCards();
-    setTimeout(()=>{
-       let turncards =  document.querySelectorAll(".card")
-       console.log(turncards)
-       for(const turn of turncards){
-        turn.classList.remove("turn")
-       }
-    },3000)
+    setTimeout(() => {
+        let turncards = document.querySelectorAll(".card")
+        console.log(turncards)
+        for (const turn of turncards) {
+            turn.classList.remove("turn")
+        }
+    }, 3000)
 }
 
 function inputCards() {
@@ -59,22 +59,24 @@ function inputCards() {
     });
 }
 
-
 function selectCards(element) {
     if (firstLetter === undefined) {
         firstLetter = element;
         element.classList.add("turn");
-        watch();
     } else if (secondLetter === undefined) {
         secondLetter = element;
         element.classList.add("turn");
         ;
     }
 
+    plays += 1;
+    if (plays === 1) {
+        watch();
+    }
+
     if (firstLetter !== undefined && secondLetter !== undefined) {
         if (firstLetter.innerHTML === secondLetter.innerHTML) {
             counter += 2;
-            plays += 1;
             firstLetter = undefined;
             secondLetter = undefined;
         } else {
@@ -83,23 +85,23 @@ function selectCards(element) {
                 secondLetter.classList.remove("turn");
                 firstLetter = undefined;
                 secondLetter = undefined;
-                plays += 1;
             }, 1000);
         }
     }
 
     if (counter == dealCards) {
-       setTimeout(()=> alert(`Você ganhou em ${plays} jogadas e em ${time} segundos!`)
-       ,1000);
+        setTimeout(() => alert(`Você ganhou em ${plays} jogadas e em ${time} segundos!`)
+            , 1000);
     }
-}0
+} 0
 
-function watch(){
-    setInterval(()=>{time+=1
-    document.querySelector(".root .watch").innerHTML = `
+function watch() {
+    setInterval(() => {
+        time += 1
+        document.querySelector(".root .watch").innerHTML = `
         ${time} Segundos
     `
-},1000)
+    }, 1000)
 }
 
 function random() {
