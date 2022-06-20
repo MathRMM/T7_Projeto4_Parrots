@@ -9,7 +9,6 @@ let cards = [
 ];
 let cheap = [];
 let dealCards;
-
 let firstLetter;
 let secondLetter;
 let counter = 0;
